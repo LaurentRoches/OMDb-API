@@ -6,10 +6,8 @@ let nav = document.querySelector('.nav');
 validChoix.addEventListener('click', getFilms);
 
 function getFilms(){
-    displayFilm()
-}
-
-
+    displayFilm();
+};
 
 async function displayFilm (url){
     container.innerHTML = '';
@@ -20,7 +18,6 @@ async function displayFilm (url){
     const reponse = await fetch(url);
     const films = await reponse.json();
 
-    console.log(films);
     films.Search.map((film) => {
         container.innerHTML += `<div class="card"> <img src=${film.Poster} class="cardImg"/><p class="text">${film.Title} sortie en ${film.Year}</p></div>`;
     });
